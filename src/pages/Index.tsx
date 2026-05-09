@@ -87,14 +87,14 @@ const PRICING = [
 const AUDI_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/763b5196-5ebc-45eb-9985-99eea2f25e84.jpg";
 const MERCEDES_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/0181558b-674e-4bab-bc1b-c3d289a53e12.jpg";
 const BMW_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/7a9faeec-1a69-47b7-b4c8-03d338e31c17.jpg";
+const AUDI_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/a4b81919-55d6-48d8-81f3-8d3c0b02660a.jpg";
+const MERCEDES_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/670b043d-3f0f-4ad9-93b6-3a002fa05a64.jpg";
+const BMW_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/051d1e2d-14ab-4bef-85f0-bff6d06daf92.jpg";
 
 const PORTFOLIO_ITEMS = [
-  { label: "Audi RS7 Sportback", tag: "Керамика + полировка", img: AUDI_IMG },
-  { label: "Mercedes-Benz S500", tag: "PPF + химчистка", img: MERCEDES_IMG },
-  { label: "BMW M5 Competition", tag: "Полировка 2 прохода", img: BMW_IMG },
-  { label: "Audi Q8", tag: "Ceramic Ultra 5 лет", img: AUDI_IMG },
-  { label: "Mercedes GLE Coupe", tag: "Оклейка плёнкой", img: MERCEDES_IMG },
-  { label: "BMW X7", tag: "Комплексный детейлинг", img: BMW_IMG },
+  { label: "Audi RS7 Sportback", tag: "Керамика + полировка", before: AUDI_BEFORE, after: AUDI_IMG },
+  { label: "Mercedes-Benz S500", tag: "PPF + химчистка", before: MERCEDES_BEFORE, after: MERCEDES_IMG },
+  { label: "BMW M5 Competition", tag: "Полировка 2 прохода", before: BMW_BEFORE, after: BMW_IMG },
 ];
 
 const REVIEWS = [
@@ -122,6 +122,71 @@ const scrollTo = (href: string) => {
   const el = document.querySelector(href);
   if (el) el.scrollIntoView({ behavior: "smooth" });
 };
+
+function BeforeAfterSlider({ before, after, label, tag }: { before: string; after: string; label: string; tag: string }) {
+  const [pos, setPos] = useState(50);
+  const [dragging, setDragging] = useState(false);
+  const containerRef = { current: null as HTMLDivElement | null };
+
+  const updatePos = (clientX: number) => {
+    const el = containerRef.current;
+    if (!el) return;
+    const rect = el.getBoundingClientRect();
+    const x = Math.max(0, Math.min(clientX - rect.left, rect.width));
+    setPos((x / rect.width) * 100);
+  };
+
+  return (
+    <div className="rounded-sm overflow-hidden" style={{ border: "1px solid rgba(201,168,76,0.15)" }}>
+      <div
+        ref={(el) => { containerRef.current = el; }}
+        className="relative select-none"
+        style={{ aspectRatio: "4/3", cursor: "col-resize" }}
+        onMouseDown={(e) => { setDragging(true); updatePos(e.clientX); }}
+        onMouseMove={(e) => { if (dragging) updatePos(e.clientX); }}
+        onMouseUp={() => setDragging(false)}
+        onMouseLeave={() => setDragging(false)}
+        onTouchStart={(e) => { setDragging(true); updatePos(e.touches[0].clientX); }}
+        onTouchMove={(e) => { updatePos(e.touches[0].clientX); }}
+        onTouchEnd={() => setDragging(false)}
+      >
+        {/* AFTER (base) */}
+        <img src={after} alt="После" className="absolute inset-0 w-full h-full object-cover" />
+
+        {/* BEFORE (clipped) */}
+        <div className="absolute inset-0 overflow-hidden" style={{ width: `${pos}%` }}>
+          <img src={before} alt="До" className="absolute inset-0 w-full h-full object-cover" style={{ width: `${10000 / pos}%`, maxWidth: "none" }} />
+        </div>
+
+        {/* Divider line */}
+        <div className="absolute top-0 bottom-0 w-px" style={{ left: `${pos}%`, background: "#C9A84C", boxShadow: "0 0 12px rgba(201,168,76,0.6)" }}>
+          <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center"
+            style={{ background: "#0A0A0A", border: "2px solid #C9A84C", boxShadow: "0 0 16px rgba(201,168,76,0.5)" }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" strokeWidth="2">
+              <path d="M8 9l-4 3 4 3M16 9l4 3-4 3"/>
+            </svg>
+          </div>
+        </div>
+
+        {/* Labels */}
+        <div className="absolute top-3 left-3 px-2 py-1 rounded-sm text-[10px] tracking-widest uppercase"
+          style={{ background: "rgba(10,10,10,0.75)", color: "rgba(237,232,222,0.6)", fontFamily: "'Golos Text', sans-serif", pointerEvents: "none" }}>
+          До
+        </div>
+        <div className="absolute top-3 right-3 px-2 py-1 rounded-sm text-[10px] tracking-widest uppercase"
+          style={{ background: "rgba(201,168,76,0.15)", border: "1px solid rgba(201,168,76,0.3)", color: "#C9A84C", fontFamily: "'Golos Text', sans-serif", pointerEvents: "none" }}>
+          После
+        </div>
+      </div>
+
+      {/* Card footer */}
+      <div className="px-6 py-4" style={{ background: "#111" }}>
+        <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A84C", marginBottom: "4px" }}>{tag}</p>
+        <h4 style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, color: "#EDE8DE" }}>{label}</h4>
+      </div>
+    </div>
+  );
+}
 
 const Index = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -288,20 +353,15 @@ const Index = () => {
       <section id="portfolio" className="py-28 px-6 md:px-12 max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "10px", letterSpacing: "0.5em", textTransform: "uppercase", color: "#C9A84C", marginBottom: "16px" }}>Наши работы</p>
-          <h2 style={{ fontFamily: "'Cormorant', serif", fontWeight: 300, fontSize: "clamp(38px, 5vw, 58px)", marginBottom: "16px" }}>Портфолио</h2>
+          <h2 style={{ fontFamily: "'Cormorant', serif", fontWeight: 300, fontSize: "clamp(38px, 5vw, 58px)", marginBottom: "16px" }}>До и после</h2>
           <div className="section-divider mx-auto mt-6" />
+          <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "13px", color: "rgba(237,232,222,0.45)", marginTop: "20px" }}>
+            Перетащите разделитель, чтобы увидеть результат
+          </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PORTFOLIO_ITEMS.map((p) => (
-            <div key={p.label + p.tag} className="relative overflow-hidden rounded-sm group cursor-pointer" style={{ aspectRatio: "4/3" }}>
-              <img src={p.img} alt={p.label} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" style={{ opacity: 0.78 }} />
-              <div className="absolute inset-0 transition-opacity duration-300 opacity-0 group-hover:opacity-100"
-                style={{ background: "linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.9) 100%)" }} />
-              <div className="absolute bottom-0 left-0 right-0 p-6 transition-all duration-300 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100">
-                <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "9px", letterSpacing: "0.3em", textTransform: "uppercase", color: "#C9A84C", marginBottom: "4px" }}>{p.tag}</p>
-                <h4 style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, color: "#EDE8DE" }}>{p.label}</h4>
-              </div>
-            </div>
+            <BeforeAfterSlider key={p.label} before={p.before} after={p.after} label={p.label} tag={p.tag} />
           ))}
         </div>
       </section>
