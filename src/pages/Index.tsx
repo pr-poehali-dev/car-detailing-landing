@@ -132,7 +132,7 @@ const Index = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
         style={{ background: "linear-gradient(180deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.0) 100%)" }}>
         <div style={{ fontFamily: "'Cormorant', serif", fontSize: "22px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>
-          DETAILIO
+          ЗОЛОТОЙ ЛЕВ
         </div>
         <ul className="hidden md:flex gap-8 items-center">
           {NAV_LINKS.map(l => (
@@ -440,9 +440,9 @@ const Index = () => {
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(201,168,76,0.1)", padding: "32px 48px" }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>DETAILIO</div>
+          <div style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>ЗОЛОТОЙ ЛЕВ</div>
           <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(237,232,222,0.28)" }}>
-            © 2024 DETAILIO — Премиум детейлинг Москва
+            © 2024 ЗОЛОТОЙ ЛЕВ — Премиум детейлинг Москва
           </p>
           <div className="flex gap-6">
             {NAV_LINKS.slice(0, 4).map(l => (
