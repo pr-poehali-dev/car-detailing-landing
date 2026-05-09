@@ -84,13 +84,17 @@ const PRICING = [
   },
 ];
 
+const AUDI_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/763b5196-5ebc-45eb-9985-99eea2f25e84.jpg";
+const MERCEDES_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/0181558b-674e-4bab-bc1b-c3d289a53e12.jpg";
+const BMW_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/7a9faeec-1a69-47b7-b4c8-03d338e31c17.jpg";
+
 const PORTFOLIO_ITEMS = [
-  { label: "Mercedes-Benz S-Class", tag: "Керамика + полировка", img: HERO_IMG },
-  { label: "Porsche Cayenne", tag: "PPF + химчистка", img: STUDIO_IMG },
-  { label: "Lamborghini Urus", tag: "Полировка 2 прохода", img: PORTFOLIO_IMG },
-  { label: "BMW 7 Series", tag: "Ceramic Ultra 5 лет", img: HERO_IMG },
-  { label: "Range Rover Sport", tag: "Оклейка плёнкой", img: STUDIO_IMG },
-  { label: "Audi RS7", tag: "Комплексный детейлинг", img: PORTFOLIO_IMG },
+  { label: "Audi RS7 Sportback", tag: "Керамика + полировка", img: AUDI_IMG },
+  { label: "Mercedes-Benz S500", tag: "PPF + химчистка", img: MERCEDES_IMG },
+  { label: "BMW M5 Competition", tag: "Полировка 2 прохода", img: BMW_IMG },
+  { label: "Audi Q8", tag: "Ceramic Ultra 5 лет", img: AUDI_IMG },
+  { label: "Mercedes GLE Coupe", tag: "Оклейка плёнкой", img: MERCEDES_IMG },
+  { label: "BMW X7", tag: "Комплексный детейлинг", img: BMW_IMG },
 ];
 
 const REVIEWS = [
