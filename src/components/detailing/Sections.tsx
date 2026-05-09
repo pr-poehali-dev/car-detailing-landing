@@ -20,13 +20,13 @@ export function HeroSection() {
         <p className="animate-fade-in" style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "10px", letterSpacing: "0.5em", textTransform: "uppercase", color: "#C9A84C", opacity: 0.85, marginBottom: "24px" }}>
           Премиум детейлинг — Москва
         </p>
-        <h1 className="animate-fade-in-delay-1" style={{ fontFamily: "'Cormorant', serif", fontWeight: 300, lineHeight: 0.9, fontSize: "clamp(60px, 10vw, 120px)", marginBottom: "32px" }}>
-          Ваш автомобиль<br />
-          <span className="text-gold-gradient"><em style={{ fontStyle: "normal" }}>заслуживает</em></span><br />
-          совершенства
+        <h1 className="animate-fade-in-delay-1" style={{ fontFamily: "'Cormorant', serif", fontWeight: 300, lineHeight: 1.0, fontSize: "clamp(44px, 7vw, 96px)", marginBottom: "32px" }}>
+          Защитим кузов вашего авто<br />
+          от реагентов и<br />
+          <span className="text-gold-gradient"><em style={{ fontStyle: "normal" }}>перепадов температур</em></span>
         </h1>
         <p className="animate-fade-in-delay-2" style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "15px", color: "rgba(237,232,222,0.55)", letterSpacing: "0.02em", maxWidth: "480px", margin: "0 auto 40px", lineHeight: 1.7 }}>
-          Профессиональный уход за автомобилем премиум-класса. Керамика, полировка, PPF и химчистка — без компромиссов.
+          Керамика 9H — до 5 лет защиты. Полировка, PPF и химчистка — без компромиссов.
         </p>
         <div className="animate-fade-in-delay-3 flex flex-col sm:flex-row gap-4 justify-center">
           <button onClick={() => scrollTo("#contacts")} className="btn-gold px-10 py-4 text-sm tracking-[0.15em] rounded-sm">
