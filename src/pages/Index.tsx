@@ -1,6 +1,8 @@
 import { useState } from "react";
 import Icon from "@/components/ui/icon";
 
+const LION_LOGO = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/8f87fb2f-9bf3-41e4-82c1-cdb2ed50aaa0.jpg";
+
 const HERO_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/edfe7ded-bc46-42cb-9ec9-db6779916cbe.jpg";
 const STUDIO_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/9cb44ff8-3aae-463f-9837-759e391126fa.jpg";
 const PORTFOLIO_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/06ca88f6-43e2-4379-8a26-b1b3d356e6f2.jpg";
@@ -131,7 +133,8 @@ const Index = () => {
       {/* NAV */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-12 py-4"
         style={{ background: "linear-gradient(180deg, rgba(10,10,10,0.98) 0%, rgba(10,10,10,0.0) 100%)" }}>
-        <div style={{ fontFamily: "'Cormorant', serif", fontSize: "22px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>
+        <div className="flex items-center gap-3" style={{ fontFamily: "'Cormorant', serif", fontSize: "22px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>
+          <img src={LION_LOGO} alt="Золотой Лев" style={{ width: "36px", height: "36px", objectFit: "cover", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.4)" }} />
           ЗОЛОТОЙ ЛЕВ
         </div>
         <ul className="hidden md:flex gap-8 items-center">
@@ -440,7 +443,10 @@ const Index = () => {
       {/* FOOTER */}
       <footer style={{ borderTop: "1px solid rgba(201,168,76,0.1)", padding: "32px 48px" }}>
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>ЗОЛОТОЙ ЛЕВ</div>
+          <div className="flex items-center gap-3" style={{ fontFamily: "'Cormorant', serif", fontSize: "20px", fontWeight: 300, letterSpacing: "0.25em", color: "#C9A84C" }}>
+            <img src={LION_LOGO} alt="Золотой Лев" style={{ width: "30px", height: "30px", objectFit: "cover", borderRadius: "50%", border: "1px solid rgba(201,168,76,0.35)" }} />
+            ЗОЛОТОЙ ЛЕВ
+          </div>
           <p style={{ fontFamily: "'Golos Text', sans-serif", fontSize: "10px", letterSpacing: "0.15em", textTransform: "uppercase", color: "rgba(237,232,222,0.28)" }}>
             © 2024 ЗОЛОТОЙ ЛЕВ — Премиум детейлинг Москва
           </p>
