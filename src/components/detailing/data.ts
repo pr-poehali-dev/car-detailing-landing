@@ -8,6 +8,12 @@ export const BMW_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064
 export const AUDI_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/a4b81919-55d6-48d8-81f3-8d3c0b02660a.jpg";
 export const MERCEDES_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/670b043d-3f0f-4ad9-93b6-3a002fa05a64.jpg";
 export const BMW_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/051d1e2d-14ab-4bef-85f0-bff6d06daf92.jpg";
+export const PORSCHE_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/4fae67be-09b8-4faa-9277-8e20a36d5851.jpg";
+export const PORSCHE_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/3f7b1355-9d9f-4d5b-9a59-827d88e64106.jpg";
+export const RANGE_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/75dd1fe8-31ef-40b6-9936-c189b0864dca.jpg";
+export const RANGE_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/803c9d5f-daa3-47a9-b637-4046a6fac694.jpg";
+export const LEXUS_IMG = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/1fa3e53e-e579-42ae-bb1d-21c9c5753fdc.jpg";
+export const LEXUS_BEFORE = "https://cdn.poehali.dev/projects/dde21345-0b84-451f-9064-c9d2f1160057/files/0eebc996-ef47-418d-84c8-d21d1cfc4251.jpg";
 
 export const NAV_LINKS = [
   { label: "Услуги", href: "#services" },
@@ -66,6 +72,9 @@ export const PORTFOLIO_ITEMS = [
   { label: "Audi RS7 Sportback", tag: "Керамика + полировка", before: AUDI_BEFORE, after: AUDI_IMG },
   { label: "Mercedes-Benz S500", tag: "PPF + химчистка", before: MERCEDES_BEFORE, after: MERCEDES_IMG },
   { label: "BMW M5 Competition", tag: "Полировка 2 прохода", before: BMW_BEFORE, after: BMW_IMG },
+  { label: "Porsche Cayenne", tag: "Ceramic Ultra 5 лет", before: PORSCHE_BEFORE, after: PORSCHE_IMG },
+  { label: "Range Rover Sport", tag: "Оклейка PPF + полировка", before: RANGE_BEFORE, after: RANGE_IMG },
+  { label: "Lexus LS 500", tag: "Комплексный детейлинг", before: LEXUS_BEFORE, after: LEXUS_IMG },
 ];
 
 export const REVIEWS = [
